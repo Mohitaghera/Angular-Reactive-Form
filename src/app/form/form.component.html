@@ -1,0 +1,113 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form">
+  <div class="inputField">
+    <label for="firstName">First Name</label>
+    <input
+      type="text"
+      autocomplete="off"
+      id="firstName"
+      formControlName="firstName"
+      [ngClass]="{
+        invalid:
+          myForm.get('firstName')?.invalid && myForm.get('firstName')?.touched
+      }"
+    />
+    <div
+      class="error-message"
+      *ngIf="
+        myForm.get('firstName')?.invalid && myForm.get('firstName')?.touched
+      "
+    >
+      Please enter valid first name
+    </div>
+  </div>
+  <div class="inputField">
+    <label for="lastName">Last Name</label>
+    <input
+      type="text"
+      autocomplete="off"
+      id="lastName"
+      formControlName="lastName"
+      name="lastName"
+      [ngClass]="{
+        invalid:
+          myForm.get('lastName')?.invalid && myForm.get('lastName')?.touched
+      }"
+    />
+    <div
+      class="error-message"
+      *ngIf="myForm.get('lastName')?.invalid && myForm.get('lastName')?.touched"
+    >
+      Please enter valid last name
+    </div>
+  </div>
+  <div class="inputField">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      formControlName="email"
+      autocomplete="off"
+      [ngClass]="{
+        invalid: myForm.get('email')?.invalid && myForm.get('email')?.touched
+      }"
+    />
+    <div
+      class="error-message"
+      *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched"
+    >
+      Please enter valid email
+    </div>
+  </div>
+  <div class="inputField">
+    <label for="gender">Gender:</label>
+    <label>
+      <input type="radio" formControlName="gender" value="male" name="gender" />
+      Male
+    </label>
+    <label>
+      <input
+        type="radio"
+        formControlName="gender"
+        value="female"
+        name="gender"
+      />
+      Female
+    </label>
+    <div
+      class="error-message"
+      *ngIf="myForm.get('gender')?.invalid && myForm.get('gender')?.touched"
+    >
+      Gender is required
+    </div>
+  </div>
+  <div>
+    <label for="married">Married</label>
+    <input type="checkbox" id="married" formControlName="married" />
+  </div>
+  <div>
+    <label>Country:</label>
+    <select
+      formControlName="country"
+      [ngClass]="{
+        invalid:
+          myForm.get('country')?.invalid && myForm.get('country')?.touched
+      }"
+    >
+      <option value="">Select Country</option>
+      <option value="india">India</option>
+      <option value="usa">USA</option>
+      <option value="england">England</option>
+    </select>
+    <div
+      class="error-message"
+      *ngIf="myForm.get('country')?.invalid && myForm.get('country')?.touched"
+    >
+      Country is required
+    </div>
+  </div>
+  <button class="submit btn" type="submit" [disabled]="!myForm.valid">
+    Submit
+  </button>
+  <button class="btn reset" type="button" (click)="onReset()">Reset</button>
+</form>
