@@ -6,6 +6,7 @@
       autocomplete="off"
       id="firstName"
       formControlName="firstName"
+      maxlength="50"
       [ngClass]="{
         invalid:
           myForm.get('firstName')?.invalid && myForm.get('firstName')?.touched
@@ -27,6 +28,7 @@
       autocomplete="off"
       id="lastName"
       formControlName="lastName"
+      maxlength="50"
       name="lastName"
       [ngClass]="{
         invalid:
@@ -46,6 +48,7 @@
       type="text"
       id="email"
       name="email"
+      maxlength="50"
       formControlName="email"
       autocomplete="off"
       [ngClass]="{

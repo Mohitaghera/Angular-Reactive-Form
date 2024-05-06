@@ -23,15 +23,12 @@ export class FormComponent implements OnInit {
     this.myForm = new FormGroup({
       firstName: new FormControl('', [
         Validators.required,
-        Validators.maxLength(50),
       ]),
       lastName: new FormControl('', [
         Validators.required,
-        Validators.maxLength(50),
       ]),
       email: new FormControl('', [
         Validators.required,
-        Validators.maxLength(50),
         Validators.email,
       ]),
       gender: new FormControl('', [Validators.required]),
